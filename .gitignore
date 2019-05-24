@@ -1,0 +1,9 @@
+.vscode/
+build/
+output/
+plog/
+clang-formats/
+.clang-format
+.clang-tidy
+log.txt
+kin++

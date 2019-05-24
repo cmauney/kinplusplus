@@ -1,0 +1,98 @@
+atoms:
+    - H
+    - He
+    - O
+    - C
+    - N
+    - Fe
+    - e
+species:
+    - name: e
+      composition: {e: 1}
+    - name: H
+      composition: {H: 1}
+    - name: He
+      composition: {He: 1}
+    - name: He_p
+      composition: {He: 1, e: -1}  
+    - name: H2
+      composition: {H: 2}
+    - name: C
+      composition: {C: 1}
+    - name: O
+      composition: {O: 1}
+    - name: N
+      composition: {N: 1}
+    - name: Fe
+      composition: {Fe: 1}
+    - name: Fe_p
+      composition: {Fe: 1, e: -1}
+    - name: C_p
+      composition: {C: 1, e: -1}
+    - name: C_m
+      composition: {C: 1, e: 1}
+    - name: C2
+      composition: {C: 2}
+    - name: C2_p
+      composition: {C: 2, e: -1}
+    - name: CH
+      composition: {C: 1, H: 1}
+    - name: NO
+      composition: {N: 2, O: 1}
+    - name: HNC
+      composition: {H: 1, N: 1, C: 1}
+    - name: HCO
+      composition: {H: 1, C: 1, O: 1}
+    - name: HCO_p
+      composition: {H: 1, C: 1, O: 1, e: -1}
+reactions:
+    - id: 0
+      type: arrhenius
+      equation: C_p + Fe = Fe_p + C
+      parameters: 
+        k: [2.60e-09,  0.00e+00,  0.00e+00]
+    - id: 1
+      type: arrhenius
+      equation: He_p + HNC = C_p + N + H + He
+      parameters: 
+        k: [4.43e-09, -5.00e-01, 0.00e+00]
+    - id: 2
+      type: arrhenius
+      equation: C_m + NO = CN_m + O
+      parameters: 
+        k: [1.00e-09,  0.00e+00,  0.00e+00]
+    - id: 3
+      type: arrhenius
+      equation: C_p + H = CH_p
+      parameters: 
+        k: [1.70e-17,  0.00e+00,  0.00e+00]
+    - id: 4
+      type: arrhenius
+      equation: C_m + C = C2 + e
+      parameters: 
+        k: [5.00e-10,  0.00e+00,  0.00e+00]
+    - id: 5
+      type: arrhenius
+      equation: O + CH = HCO_p + e
+      parameters: 
+        k: [2.00e-11, 4.40e-01,  0.00e+00]
+    - id: 6
+      type: arrhenius
+      equation: C + CH = C2 + H 
+      parameters: 
+        k: [6.59e-11,  0.00e+00,  0.00e+00]
+    - id: 7
+      type: arrhenius
+      equation: C2_p + e = C + C
+      parameters: 
+        k: [8.84e-08, -5.00e-01,  0.00e+00]
+    - id: 8
+      type: arrhenius
+      equation: C_p + C_m = C + C
+      parameters: 
+        k: [2.30e-07, -5.00e-01,  0.00e+00]
+    - id: 9
+      type: arrhenius
+      equation: C + e = C_m
+      parameters:
+        k: [3.00e-15, 0.00e+00,  0.00e+00]

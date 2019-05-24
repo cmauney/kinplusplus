@@ -1,0 +1,35 @@
+atoms:
+    - A
+species:
+    - name: U1
+      composition: [[A, 1]]
+    - name: U2
+      composition: [[A, 1]]
+    - name: U3
+      composition: [[A, 1]]
+    - name: U4
+      composition: [[A, 1]]
+    - name: U5
+      composition: [[A, 1]]
+reactions:
+    - id: 0
+      type: arrhenius
+      equation: U1 = U2 + U3
+      parameters: 
+        k: [7.89E-10, 0.0, 0]
+    - id: 1
+      type: arrhenius
+      equation: U1 + U3 = U4
+      parameters: 
+        k: [1.1E7, 0.0, 0]
+    - id: 2
+      type: arrhenius
+      equation: U2 + U3 = U5
+      parameters: 
+        k: [1.13E9, 0.0, 0]
+    - id: 3
+      type: arrhenius
+      equation: U4 = U3
+      parameters: 
+        k: [1.13E3, 0.0, 0]
+

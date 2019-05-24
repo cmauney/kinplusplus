@@ -1,0 +1,86 @@
+atoms:
+    - H
+    - O
+    - C
+    - N
+    - Ar
+species:
+    - name: Ar
+      composition: {Ar: 1}
+    - name: O
+      composition: {O: 1}
+    - name: H
+      composition: {H: 1}
+    - name: C
+      composition: {C: 1}
+    - name: N
+      composition: {N: 1}
+    - name: H2
+      composition: {H: 2}
+    - name: O2
+      composition: {O: 2}
+    - name: N2
+      composition: {N: 2}
+    - name: OH
+      composition: {O: 1, H: 1}
+    - name: H2O
+      composition: {O: 1, H: 2}
+    - name: HO2
+      composition: {O: 2, H: 1}
+    - name: H2O2
+      composition: {O: 2, H: 2}
+    - name: CH
+      composition: {C: 1, H: 1}
+    - name: CH2
+      composition: {C: 1, H: 2}
+    - name: CH3
+      composition: {C: 1, H: 3}
+    - name: CH4
+      composition: {C: 1, H: 4}
+    - name: C2H6
+      composition: {C: 2, H: 6}
+    - name: CO
+      composition: {C: 1, O: 1}
+    - name: CO2
+      composition: {C: 1, O: 2}
+    - name: NO
+      composition: {N: 1, O: 1}
+initial_composition: {N: 1.0E4, O: 1.0E4, H: 1.0E2, C: 1.0E3}
+reactions:
+    - id: 0
+      type: arrhenius
+      equation: O + O = O2
+      parameters: 
+        k: [1.20E+17, 0.0, 0]
+      M_eff: {Ar: 0.83, H2: 2.4, H2O: 15.4, CO: 1.75, CO2: 3.6, CH4: 2.0, C2H6: 3.0}
+    - id: 1
+      type: arrhenius
+      equation: O + H = OH
+      parameters: 
+        k: [5.0E+17, -1.0, 0]
+      M_eff: {Ar: 0.7, H2: 2.0, H2O: 6.0, CO: 1.5, CO2: 2.0, CH4: 2.0, C2H6: 3.0}
+    - id: 2
+      type: arrhenius
+      equation: O + H2 = H + OH
+      parameters: 
+        k: [3.87000E+04, 2.7, 6260]
+    - id: 3
+      type: arrhenius
+      equation: O + HO2 = OH + O2
+      parameters: 
+        k: [2.00000E+13, 0, 0]
+    - id: 4
+      type: arrhenius
+      equation: O + H2O2 = OH + HO2
+      parameters: 
+        k: [9.63000E+06, 2, 4000]
+    - id: 5
+      type: arrhenius
+      equation: O + CH = H + CO
+      parameters: 
+        k: [5.70000E+13, 0, 0]
+    - id: 6
+      type: arrhenius
+      equation: CH2 + CH4 = 2 CH3
+      parameters:
+        k: [2.46000E+06, 2, 8270]
